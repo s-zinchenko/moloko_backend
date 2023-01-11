@@ -1,0 +1,9 @@
+include:
+  project: mnt/ci
+  file: django/ci.yaml
+
+variables:
+  API_DOCKERFILE_PATH: "docker/gunicorn.Dockerfile"
+  DOMAIN_DEV: $CI_PROJECT_NAME.ktsdev.ru
+  DOMAIN_PROD: ""
+
