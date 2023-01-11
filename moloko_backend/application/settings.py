@@ -18,7 +18,7 @@ SECRET_KEY = env.str("SECRET_KEY", default="my-secret-key")
 DEBUG = env.bool("DEBUG", default=False)
 SILK = env.bool("SILK", default=True)
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["www.zinchi5d.beget.tech", "zinchi5d.beget.tech"]
 CSRF_TRUSTED_ORIGINS = [env.str("CSRF_TRUSTED_ORIGINS", default="https://*.ktsdev.ru")]
 
 INSTALLED_APPS = [
