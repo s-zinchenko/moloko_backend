@@ -4,7 +4,7 @@ from django.core.handlers.wsgi import WSGIRequest
 from django_serializer.v2.views import ApiView, HttpMethod, ListApiView
 
 from moloko_backend.core.models import Company, Management
-from moloko_backend.core.serializers import AboutCompanySerializer, ManagementListSerializer
+from moloko_backend.core.serializers import AboutCompanySerializer, ManagementPersonSerializer
 
 
 class AboutCompanyView(ApiView):
@@ -22,7 +22,7 @@ class AboutCompanyView(ApiView):
 class ManagementListView(ListApiView):
     class Meta:
         model = Management
-        serializer = ManagementListSerializer
+        serializer = ManagementPersonSerializer
         tags = ["core"]
 
     def execute(self, request, *args, **kwargs):

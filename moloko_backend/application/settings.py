@@ -18,7 +18,8 @@ SECRET_KEY = env.str("SECRET_KEY", default="my-secret-key")
 DEBUG = env.bool("DEBUG", default=False)
 SILK = env.bool("SILK", default=True)
 
-ALLOWED_HOSTS = ["www.zinchi5d.beget.tech", "zinchi5d.beget.tech"]
+# ALLOWED_HOSTS = ["www.zinchi5d.beget.tech", "zinchi5d.beget.tech"]
+ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = [env.str("CSRF_TRUSTED_ORIGINS", default="https://*.ktsdev.ru")]
 
 INSTALLED_APPS = [
@@ -132,6 +133,9 @@ USE_L10N = True
 USE_TZ = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MEDIA_ROOT = env("MEDIA_ROOT", default=os.path.join(BASE_DIR, "media"))
+MEDIA_URL = "/media/"
 
 STATIC_URL = "/dj_static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")

@@ -7,12 +7,8 @@ from moloko_backend.news.serializers import NewsItemSerializer, NewsListSerializ
 class NewsListView(ListApiView):
     class Meta:
         model = News
-        serializer = NewsListSerializer
+        serializer = NewsItemSerializer
         tags = ["news"]
-
-    def execute(self, request, *args, **kwargs):
-        qs = super().execute(request, *args, **kwargs)
-        return {"news": qs}
 
 
 class NewsGetView(GetApiView):
