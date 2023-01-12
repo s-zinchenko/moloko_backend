@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django_serializer.v2.views import ListApiView
 
 from moloko_backend.cooperation.forms import TermsListForm
@@ -17,6 +16,10 @@ class TermsListView(ListApiView):
     def get_queryset(self):
         return TermOfCooperation.objects.filter(type=self.request_query["type"])
 
+    def execute(self, request, *args, **kwargs):
+        qs = super().execute(request, *args, **kwargs)
+        return {"terms": qs}
+
 
 class PartnersListView(ListApiView):
     class Meta:
@@ -24,9 +27,17 @@ class PartnersListView(ListApiView):
         serializer = PartnerListSerializer
         tags = ["cooperation"]
 
+    def execute(self, request, *args, **kwargs):
+        qs = super().execute(request, *args, **kwargs)
+        return {"partners": qs}
+
 
 class RequirementsListView(ListApiView):
     class Meta:
         model = Requirement
         serializer = RequirementsListSerializer
         tags = ["cooperation"]
+
+    def execute(self, request, *args, **kwargs):
+        qs = super().execute(request, *args, **kwargs)
+        return {"requirements": qs}

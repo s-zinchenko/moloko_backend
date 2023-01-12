@@ -10,6 +10,10 @@ class NewsListView(ListApiView):
         serializer = NewsListSerializer
         tags = ["news"]
 
+    def execute(self, request, *args, **kwargs):
+        qs = super().execute(request, *args, **kwargs)
+        return {"news": qs}
+
 
 class NewsGetView(GetApiView):
     class Meta:

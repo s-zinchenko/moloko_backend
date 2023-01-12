@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "solo",
     "import_export",
+    "corsheaders",
 ]
 
 PROJECT_APPS = [
@@ -47,11 +48,20 @@ if SILK:
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://www.zinchi5d.beget.tech",
+    "http://zinchi5d.beget.tech",
+    "https://www.zinchi5d.beget.tech",
+    "https://zinchi5d.beget.tech",
+    "http://localhost:3000",
 ]
 
 if SILK:
@@ -79,15 +89,26 @@ WSGI_APPLICATION = (
     "moloko_backend.application.wsgi.application"
 )
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": env.str("DATABASE_NAME", default=""),
+#         "USER": env.str("DATABASE_USER", default=""),
+#         "PASSWORD": env.str("DATABASE_PASSWORD", default=""),
+#         "HOST": env.str("DATABASE_HOST", default="127.0.0.1"),
+#         "PORT": env.int("DATABASE_PORT", default="5432"),
+#         "TEST": {"CHARSET": "UTF8", "TEMPLATE": "template0"},
+#     },
+# }
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": env.str("DATABASE_NAME", default=""),
-        "USER": env.str("DATABASE_USER", default=""),
-        "PASSWORD": env.str("DATABASE_PASSWORD", default=""),
-        "HOST": env.str("DATABASE_HOST", default="127.0.0.1"),
-        "PORT": env.int("DATABASE_PORT", default="5432"),
-        "TEST": {"CHARSET": "UTF8", "TEMPLATE": "template0"},
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": env.str("DATABASE_NAME", default="zinchi5d_moloko"),
+        "USER": env.str("DATABASE_USER", default="zinchi5d_moloko"),
+        "PASSWORD": env.str("DATABASE_PASSWORD", default="nMc4&J6o"),
+        "HOST": env.str("DATABASE_HOST", default="localhost"),
+        "PORT": env.int("DATABASE_PORT", default="3306"),
     },
 }
 

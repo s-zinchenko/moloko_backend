@@ -24,3 +24,7 @@ class ManagementListView(ListApiView):
         model = Management
         serializer = ManagementListSerializer
         tags = ["core"]
+
+    def execute(self, request, *args, **kwargs):
+        qs = super().execute(request, *args, **kwargs)
+        return {"management": qs}
