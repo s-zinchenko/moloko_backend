@@ -7,8 +7,12 @@ class LogisticBid(models.Model):
         verbose_name_plural = "Логистические заявки"
 
     full_name = models.CharField(max_length=512, verbose_name="Полное имя")
-    departure_address = models.CharField(max_length=512, verbose_name="Адрес отправления")
-    contact_phone = models.CharField(max_length=32, verbose_name="Контактный телефон")
+    departure_address = models.CharField(
+        max_length=512, verbose_name="Адрес отправления"
+    )
+    contact_phone = models.CharField(
+        max_length=32, verbose_name="Контактный телефон"
+    )
     cargo_weight = models.PositiveIntegerField(verbose_name="Вес груза в КГ")
     email = models.EmailField(verbose_name="Электронная почта")
     cargo_descriptions = models.TextField(verbose_name="Описание груза")
@@ -23,9 +27,13 @@ class CooperationBid(models.Model):
         verbose_name_plural = "Заявки на сотрудничество"
 
     full_name = models.CharField(max_length=512, verbose_name="Полное имя")
-    contact_phone = models.CharField(max_length=32, verbose_name="Контактный телефон")
+    contact_phone = models.CharField(
+        max_length=32, verbose_name="Контактный телефон"
+    )
     email = models.EmailField(verbose_name="Электронная почта")
-    company_name = models.CharField(max_length=512, verbose_name="Название компании")
+    company_name = models.CharField(
+        max_length=512, verbose_name="Название компании"
+    )
     document = models.FileField(verbose_name="Документ")
     comment = models.TextField(verbose_name="Комментарий")
 

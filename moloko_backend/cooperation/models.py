@@ -11,7 +11,9 @@ class TermOfCooperation(models.Model):
         DELIVERY = "delivery"
         PAYMENT = "payment"
 
-    type = models.CharField(max_length=16, choices=Type.choices, verbose_name="Тип условия")
+    type = models.CharField(
+        max_length=16, choices=Type.choices, verbose_name="Тип условия"
+    )
     term = models.CharField(max_length=512, verbose_name="Условие")
 
     def __str__(self) -> str:
@@ -35,7 +37,9 @@ class Requirement(models.Model):
         verbose_name = "Требование к поставщикам и производителям"
         verbose_name_plural = "Требования к поставщикам и производителям"
 
-    title = models.CharField(max_length=512, verbose_name="Требование к поставщикам и производителям")
+    title = models.CharField(
+        max_length=512, verbose_name="Требование к поставщикам и производителям"
+    )
 
     def __str__(self) -> str:
         return self.title

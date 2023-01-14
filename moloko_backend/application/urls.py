@@ -6,9 +6,6 @@ from django.views.static import serve
 from django_serializer.v2.swagger.views import index as swagger_index
 
 
-
-
-
 urlpatterns = [
     path("admin/", admin.site.urls),
     path(
@@ -35,7 +32,6 @@ urlpatterns = [
             ]
         ),
     ),
-    
 ]
 
 if settings.DEBUG:
@@ -44,8 +40,16 @@ if settings.DEBUG:
     )
 else:
     urlpatterns += [
-        re_path(f"^{settings.MEDIA_URL.lstrip('/')}(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
-        re_path(f"^{settings.STATIC_URL.lstrip('/')}(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
+        re_path(
+            f"^{settings.MEDIA_URL.lstrip('/')}(?P<path>.*)$",
+            serve,
+            {"document_root": settings.MEDIA_ROOT},
+        ),
+        re_path(
+            f"^{settings.STATIC_URL.lstrip('/')}(?P<path>.*)$",
+            serve,
+            {"document_root": settings.STATIC_ROOT},
+        ),
     ]
 
 if settings.SILK:

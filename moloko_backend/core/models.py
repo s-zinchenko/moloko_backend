@@ -60,8 +60,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         _("staff status"),
         default=False,
         help_text=_(
-            "Designates whether the user can log " 
-            "into this admin site."
+            "Designates whether the user can log " "into this admin site."
         ),
     )
     is_active = models.BooleanField(
@@ -103,7 +102,9 @@ class Fact(models.Model):
 
     number = models.SmallIntegerField(verbose_name="Число")
     title = models.CharField(max_length=256, verbose_name="Описание")
-    company = models.ForeignKey("core.Company", on_delete=models.CASCADE, verbose_name="Факт о компании")
+    company = models.ForeignKey(
+        "core.Company", on_delete=models.CASCADE, verbose_name="Факт о компании"
+    )
 
     def __str__(self) -> str:
         return f"Факт о {self.company.name}"

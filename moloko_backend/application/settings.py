@@ -20,7 +20,9 @@ SILK = env.bool("SILK", default=True)
 
 # ALLOWED_HOSTS = ["www.zinchi5d.beget.tech", "zinchi5d.beget.tech"]
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = [env.str("CSRF_TRUSTED_ORIGINS", default="https://*.ktsdev.ru")]
+CSRF_TRUSTED_ORIGINS = [
+    env.str("CSRF_TRUSTED_ORIGINS", default="https://*.ktsdev.ru")
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -86,9 +88,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = (
-    "moloko_backend.application.wsgi.application"
-)
+WSGI_APPLICATION = "moloko_backend.application.wsgi.application"
 
 # DATABASES = {
 #     "default": {
@@ -125,7 +125,6 @@ AUTH_USER_MODEL = "core.User"
 
 LANGUAGE_CODE = "ru-RU"
 TIME_ZONE = "Europe/Moscow"
-
 
 
 USE_I18N = True
@@ -179,5 +178,5 @@ SERIALIZER_FIELD_MAPPING = {
 }
 SERIALIZER_FORM_FIELD_MAPPING = {
     FormFileField: fields.Str,
-    ChoiceField: fields.Str
+    ChoiceField: fields.Str,
 }

@@ -1,6 +1,9 @@
 from django.urls import path
 
-from moloko_backend.bids.views import CooperationBidCreateView, LogisticBidCreateView
+from moloko_backend.bids.views import (
+    CooperationBidCreateView,
+    LogisticBidCreateView,
+)
 
 urlpatterns = [
     path("logistic.create", LogisticBidCreateView.as_view()),

@@ -4,7 +4,10 @@ from django.core.handlers.wsgi import WSGIRequest
 from django_serializer.v2.views import ApiView, HttpMethod, ListApiView
 
 from moloko_backend.core.models import Company, Management
-from moloko_backend.core.serializers import AboutCompanySerializer, ManagementPersonSerializer
+from moloko_backend.core.serializers import (
+    AboutCompanySerializer,
+    ManagementPersonSerializer,
+)
 
 
 class AboutCompanyView(ApiView):
@@ -14,7 +17,9 @@ class AboutCompanyView(ApiView):
         serializer = AboutCompanySerializer
         tags = ["core"]
 
-    def execute(self, request: WSGIRequest, *args: Any, **kwargs: Dict[Any, Any]) -> Dict[Any, Any]:
+    def execute(
+        self, request: WSGIRequest, *args: Any, **kwargs: Dict[Any, Any]
+    ) -> Dict[Any, Any]:
         obj = Company.objects.prefetch_related("fact_set").get()
         return obj
 
@@ -24,7 +29,3 @@ class ManagementListView(ListApiView):
         model = Management
         serializer = ManagementPersonSerializer
         tags = ["core"]
-
-    def execute(self, request, *args, **kwargs):
-        qs = super().execute(request, *args, **kwargs)
-        return {"management": qs}

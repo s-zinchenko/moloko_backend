@@ -1,6 +1,10 @@
 from django.contrib import admin
 
-from moloko_backend.cooperation.models import TermOfCooperation, Partner, Requirement
+from moloko_backend.cooperation.models import (
+    TermOfCooperation,
+    Partner,
+    Requirement,
+)
 
 
 @admin.register(TermOfCooperation)

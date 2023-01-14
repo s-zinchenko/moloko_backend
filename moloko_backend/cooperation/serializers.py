@@ -1,31 +1,36 @@
-from django_serializer.v2.serializer import ModelSerializer, Serializer
-from marshmallow import fields
+from typing import Any, Optional
 
-from moloko_backend.cooperation.models import TermOfCooperation, Partner, Requirement
+from django_serializer.v2.serializer import ModelSerializer, Serializer
+from marshmallow import fields, pre_dump
+
+from moloko_backend.cooperation.models import (
+    TermOfCooperation,
+    Partner,
+    Requirement,
+)
 
 
 class TermsItemSerializer(ModelSerializer):
     class SMeta:
         model = TermOfCooperation
-        fields = (
-            "term",
-        )
+        fields = ("term",)
 
 
 class PartnerItemSerializer(ModelSerializer):
     class SMeta:
         model = Partner
-        fields = (
-            "logo",
-        )
+        fields = ("logo",)
+
+    @pre_dump
+    def prepare(self, obj: Partner, **kwargs: Optional[Any]) -> Partner:
+        obj.logo = obj.logo.url
+        return obj
 
 
 class RequirementItemSerializer(ModelSerializer):
     class SMeta:
         model = Requirement
-        fields = (
-            "title",
-        )
+        fields = ("title",)
 
 
 class TermsListSerializer(Serializer):
@@ -38,5 +43,3 @@ class PartnerListSerializer(Serializer):
 
 class RequirementsListSerializer(Serializer):
     requirements = fields.Nested(RequirementItemSerializer, many=True)
-
-

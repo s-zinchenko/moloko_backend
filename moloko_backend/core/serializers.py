@@ -23,11 +23,13 @@ class AboutCompanySerializer(ModelSerializer):
             "description",
             "map_image",
         )
+
     facts = fields.Nested(FactSerializer, many=True)
 
     @pre_dump
     def prepare(self, obj: Company, **kwargs: Optional[Any]) -> Company:
         obj.facts = obj.fact_set.all()
+        obj.map_image = obj.map_image.url
         return obj
 
 
@@ -40,6 +42,11 @@ class ManagementPersonSerializer(ModelSerializer):
         )
 
     name = fields.Str()
+
+    @pre_dump
+    def prepare(self, obj: Management, **kwargs: Optional[Any]) -> Management:
+        obj.portrait = obj.portrait.url
+        return obj
 
 
 class ManagementListSerializer(Serializer):

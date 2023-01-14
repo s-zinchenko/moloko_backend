@@ -1,7 +1,10 @@
 from django_serializer.v2.serializer import Serializer
 from django_serializer.v2.views import CreateApiView
 
-from moloko_backend.bids.forms import LogisticBidCreateForm, CooperationBidCreateForm
+from moloko_backend.bids.forms import (
+    LogisticBidCreateForm,
+    CooperationBidCreateForm,
+)
 from moloko_backend.bids.models import LogisticBid, CooperationBid
 
 
