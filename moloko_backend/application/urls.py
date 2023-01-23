@@ -29,6 +29,10 @@ urlpatterns = [
                     "bids.",
                     include("moloko_backend.bids.urls"),
                 ),
+                path(
+                    "goods.",
+                    include("moloko_backend.goods.urls"),
+                ),
             ]
         ),
     ),

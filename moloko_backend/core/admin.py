@@ -1,7 +1,7 @@
 from django.contrib import admin
 from solo.admin import SingletonModelAdmin
 
-from moloko_backend.core.models import Company, Fact, Management
+from moloko_backend.core.models import Company, Fact
 
 
 class FactInline(admin.TabularInline):
@@ -13,14 +13,3 @@ class CompanyAdmin(SingletonModelAdmin):
     inlines = [
         FactInline,
     ]
-
-
-@admin.register(Management)
-class ManagementAdmin(admin.ModelAdmin):
-    fields = (
-        "last_name",
-        "first_name",
-        "middle_name",
-        "role",
-        "portrait",
-    )

@@ -108,22 +108,3 @@ class Fact(models.Model):
 
     def __str__(self) -> str:
         return f"Факт о {self.company.name}"
-
-
-class Management(models.Model):
-    class Meta:
-        verbose_name = "Управляющий"
-        verbose_name_plural = "Управляющие"
-
-    first_name = models.CharField(max_length=512, verbose_name="Имя")
-    last_name = models.CharField(max_length=512, verbose_name="Фамилия")
-    middle_name = models.CharField(max_length=512, verbose_name="Отчество")
-    role = models.CharField(max_length=512, verbose_name="Должность")
-    portrait = models.FileField(verbose_name="Портрет")
-
-    @property
-    def name(self) -> str:
-        return f"{self.last_name} {self.first_name[0]}.{self.middle_name[0]}."
-
-    def __str__(self) -> str:
-        return self.name

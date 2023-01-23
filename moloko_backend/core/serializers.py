@@ -3,7 +3,7 @@ from typing import Optional, Any
 from django_serializer.v2.serializer import ModelSerializer, Serializer
 from marshmallow import fields, pre_dump
 
-from moloko_backend.core.models import Company, Fact, Management
+from moloko_backend.core.models import Company, Fact
 
 
 class FactSerializer(ModelSerializer):
@@ -31,23 +31,3 @@ class AboutCompanySerializer(ModelSerializer):
         obj.facts = obj.fact_set.all()
         obj.map_image = obj.map_image.url
         return obj
-
-
-class ManagementPersonSerializer(ModelSerializer):
-    class SMeta:
-        model = Management
-        fields = (
-            "role",
-            "portrait",
-        )
-
-    name = fields.Str()
-
-    @pre_dump
-    def prepare(self, obj: Management, **kwargs: Optional[Any]) -> Management:
-        obj.portrait = obj.portrait.url
-        return obj
-
-
-class ManagementListSerializer(Serializer):
-    management = fields.Nested(ManagementPersonSerializer, many=True)

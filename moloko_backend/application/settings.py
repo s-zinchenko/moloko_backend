@@ -41,6 +41,7 @@ PROJECT_APPS = [
     "moloko_backend.news",
     "moloko_backend.cooperation",
     "moloko_backend.bids",
+    "moloko_backend.goods",
 ]
 
 INSTALLED_APPS += PROJECT_APPS

@@ -1,7 +1,6 @@
 from django.urls import path
-from moloko_backend.core.views import AboutCompanyView, ManagementListView
+from moloko_backend.core.views import AboutCompanyView
 
 urlpatterns = [
     path("about", AboutCompanyView.as_view()),
-    path("management.list", ManagementListView.as_view()),
 ]
