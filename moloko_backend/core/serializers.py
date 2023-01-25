@@ -3,7 +3,7 @@ from typing import Optional, Any
 from django_serializer.v2.serializer import ModelSerializer, Serializer
 from marshmallow import fields, pre_dump
 
-from moloko_backend.core.models import Company, Fact
+from moloko_backend.core.models import Company, Fact, Agreement
 
 
 class FactSerializer(ModelSerializer):
@@ -31,3 +31,11 @@ class AboutCompanySerializer(ModelSerializer):
         obj.facts = obj.fact_set.all()
         obj.map_image = obj.map_image.url
         return obj
+
+
+class GetAgreementSerializer(ModelSerializer):
+    class SMeta:
+        model = Agreement
+        fields = (
+            "file",
+        )

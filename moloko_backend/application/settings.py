@@ -181,3 +181,14 @@ SERIALIZER_FORM_FIELD_MAPPING = {
     FormFileField: fields.Str,
     ChoiceField: fields.Str,
 }
+
+# EMAIL SETTINGS
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env("EMAIL_HOST", default="smtp.mail.ru")
+EMAIL_PORT = env("EMAIL_PORT", default=2525)
+EMAIL_USE_TLS = env("EMAIL_USE_TLS", default=True)
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="zinchieko02@mail.ru")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="P8BMpkwKjyK8eCczQgBP")
+
+EMAIL_FROM_USER = env("EMAIL_FROM_USER", default="zinchieko02@mail.ru")

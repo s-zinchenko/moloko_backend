@@ -108,3 +108,13 @@ class Fact(models.Model):
 
     def __str__(self) -> str:
         return f"Факт о {self.company.name}"
+
+
+class Agreement(SingletonModel):
+    class Meta:
+        verbose_name = "Компания"
+
+    file = models.FileField(verbose_name="Файл согласия на обработку персональных данных")
+
+    def __str__(self) -> str:
+        return "Согласие на обработку персональных данных"
