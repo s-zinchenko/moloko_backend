@@ -34,18 +34,18 @@ class CooperationBid(SendEmailMixin, models.Model):
 
     email_subject: str = "Заявка на сотрудничество"
     # email_recipient = "moloko.optom@mail.ru"
-    email_recipient = "zinchieko02@mail.ru"
+    email_recipient = "websiteee02@mail.ru"
 
     full_name = models.CharField(max_length=512, verbose_name="Полное имя")
     contact_phone = models.CharField(
-        max_length=32, verbose_name="Контактный телефон"
+        max_length=32, verbose_name="Контактный телефон", null=True, blank=True
     )
     email = models.EmailField(verbose_name="Электронная почта")
     company_name = models.CharField(
         max_length=512, verbose_name="Название компании"
     )
-    document = models.FileField(verbose_name="Документ")
-    comment = models.TextField(verbose_name="Комментарий")
+    document = models.FileField(verbose_name="Документ", null=True, blank=True)
+    comment = models.TextField(verbose_name="Комментарий", null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.full_name} {self.contact_phone}"
@@ -68,8 +68,8 @@ class PriceListBid(SendEmailMixin, models.Model):
         verbose_name_plural = "Заявки на прайс-листы"
 
     email_subject: str = "Заявка на прайс-лист"
-    # email_recipient = "moloko.optom@mail.ru"
-    email_recipient = "zinchieko02@mail.ru"
+    # email_recipient = "prodotdel@opt-moloko.ru "
+    email_recipient = "websiteee02@mail.ru"
 
     name = models.CharField(max_length=512, verbose_name="Имя")
     contact_phone = models.CharField(

@@ -30,7 +30,8 @@ def send_mail(
         headers=headers,
     )
     msg.attach_alternative(message, "text/html")
-    msg.attach(content=attachment.file.read(), mimetype="application/pdf")
+    if attachment:
+        msg.attach(content=attachment.file.read(), mimetype="application/pdf")
 
     return msg.send(fail_silently)
 

@@ -30,3 +30,9 @@ class GetAgreementView(ApiView):
         method = HttpMethod.GET
         serializer = GetAgreementSerializer
         tags = ["core"]
+
+    def execute(
+        self, request: WSGIRequest, *args: Any, **kwargs: Dict[Any, Any]
+    ) -> Dict[Any, Any]:
+        obj = Agreement.objects.get()
+        return obj
