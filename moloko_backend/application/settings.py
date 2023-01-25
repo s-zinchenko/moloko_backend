@@ -92,28 +92,28 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "moloko_backend.application.wsgi.application"
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": env.str("DATABASE_NAME", default=""),
-        "USER": env.str("DATABASE_USER", default=""),
-        "PASSWORD": env.str("DATABASE_PASSWORD", default=""),
-        "HOST": env.str("DATABASE_HOST", default="127.0.0.1"),
-        "PORT": env.int("DATABASE_PORT", default="5432"),
-        "TEST": {"CHARSET": "UTF8", "TEMPLATE": "template0"},
-    },
-}
-
 # DATABASES = {
 #     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": env.str("DATABASE_NAME", default="zinchi5d_moloko"),
-#         "USER": env.str("DATABASE_USER", default="zinchi5d_moloko"),
-#         "PASSWORD": env.str("DATABASE_PASSWORD", default="nMc4&J6o"),
-#         "HOST": env.str("DATABASE_HOST", default="localhost"),
-#         "PORT": env.int("DATABASE_PORT", default="3306"),
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": env.str("DATABASE_NAME", default=""),
+#         "USER": env.str("DATABASE_USER", default=""),
+#         "PASSWORD": env.str("DATABASE_PASSWORD", default=""),
+#         "HOST": env.str("DATABASE_HOST", default="127.0.0.1"),
+#         "PORT": env.int("DATABASE_PORT", default="5432"),
+#         "TEST": {"CHARSET": "UTF8", "TEMPLATE": "template0"},
 #     },
 # }
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": env.str("DATABASE_NAME", default="zinchi5d_moloko"),
+        "USER": env.str("DATABASE_USER", default="zinchi5d_moloko"),
+        "PASSWORD": env.str("DATABASE_PASSWORD", default="nMc4&J6o"),
+        "HOST": env.str("DATABASE_HOST", default="localhost"),
+        "PORT": env.int("DATABASE_PORT", default="3306"),
+    },
+}
 
 
 AUTH_PASSWORD_VALIDATORS = [
