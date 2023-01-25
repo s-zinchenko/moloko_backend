@@ -39,3 +39,8 @@ class GetAgreementSerializer(ModelSerializer):
         fields = (
             "file",
         )
+
+    @pre_dump
+    def prepare(self, obj: Agreement, **kwargs: Optional[Any]) -> Agreement:
+        obj.file = obj.file.url
+        return obj
