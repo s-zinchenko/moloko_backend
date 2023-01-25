@@ -112,7 +112,7 @@ class Fact(models.Model):
 
 class Agreement(SingletonModel):
     class Meta:
-        verbose_name = "Компания"
+        verbose_name = "Согласие на обработку персональных данных"
 
     file = models.FileField(verbose_name="Файл согласия на обработку персональных данных")
 
