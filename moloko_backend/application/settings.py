@@ -15,7 +15,8 @@ env = environ.Env()
 environ.Env.read_env(env.str("ENV_PATH", ".env"))
 
 SECRET_KEY = env.str("SECRET_KEY", default="my-secret-key")
-DEBUG = env.bool("DEBUG", default=False)
+# DEBUG = env.bool("DEBUG", default=False)
+DEBUG = env.bool("DEBUG", default=True)
 SILK = env.bool("SILK", default=True)
 
 # ALLOWED_HOSTS = ["www.zinchi5d.beget.tech", "zinchi5d.beget.tech"]
