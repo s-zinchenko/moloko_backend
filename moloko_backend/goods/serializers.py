@@ -27,5 +27,8 @@ class CategorySerializer(ModelSerializer):
     @pre_dump
     def prepare(self, obj: Category, **kwargs: Optional[Any]) -> Category:
         obj.product_list = obj.product_set.all()
-        obj.icon = obj.icon.url
+        if obj.icon:
+            obj.icon = obj.icon.url
+        else:
+            obj.icon = None
         return obj
