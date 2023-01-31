@@ -7,6 +7,7 @@ class Category(models.Model):
         verbose_name_plural = "Категории"
 
     title = models.CharField(max_length=512, verbose_name="Название категории")
+    icon = models.FileField(verbose_name="Иконка категории", default=None)
 
     def __str__(self) -> str:
         return self.title

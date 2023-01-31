@@ -19,6 +19,7 @@ class CategorySerializer(ModelSerializer):
         model = Category
         fields = (
             "title",
+            "icon",
         )
 
     product_list = fields.Nested(ProductSerializer, many=True)
@@ -26,4 +27,5 @@ class CategorySerializer(ModelSerializer):
     @pre_dump
     def prepare(self, obj: Category, **kwargs: Optional[Any]) -> Category:
         obj.product_list = obj.product_set.all()
+        obj.icon = obj.icon.url
         return obj
