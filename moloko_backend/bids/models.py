@@ -10,6 +10,7 @@ class LogisticBid(SendEmailMixin, models.Model):
         verbose_name = "Логистическая заявка"
         verbose_name_plural = "Логистические заявки"
 
+    email_subject: str = "Логистическая заявка"
     email_recipient = ""
 
     full_name = models.CharField(max_length=512, verbose_name="Полное имя")
@@ -33,7 +34,6 @@ class CooperationBid(SendEmailMixin, models.Model):
         verbose_name_plural = "Заявки на сотрудничество"
 
     email_subject: str = "Заявка на сотрудничество"
-    # email_recipient = "moloko.optom@mail.ru"
     email_recipient = "websiteee02@mail.ru"
 
     full_name = models.CharField(max_length=512, verbose_name="Полное имя")
@@ -68,7 +68,6 @@ class PriceListBid(SendEmailMixin, models.Model):
         verbose_name_plural = "Заявки на прайс-листы"
 
     email_subject: str = "Заявка на прайс-лист"
-    # email_recipient = "prodotdel@opt-moloko.ru "
     email_recipient = "websiteee02@mail.ru"
 
     name = models.CharField(max_length=512, verbose_name="Имя")

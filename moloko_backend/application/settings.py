@@ -12,18 +12,13 @@ BASE_DIR = os.path.dirname(
 
 VERSION = "0.0.1"
 env = environ.Env()
-environ.Env.read_env(env.str("ENV_PATH", ".env"))
+environ.Env.read_env(env.str("ENV_PATH", "env"))
 
 SECRET_KEY = env.str("SECRET_KEY", default="my-secret-key")
-# DEBUG = env.bool("DEBUG", default=False)
-DEBUG = env.bool("DEBUG", default=True)
-SILK = env.bool("SILK", default=True)
+DEBUG = env.bool("DEBUG", default=False)
+SILK = env.bool("SILK", default=False)
 
-# ALLOWED_HOSTS = ["www.zinchi5d.beget.tech", "zinchi5d.beget.tech"]
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = [
-    env.str("CSRF_TRUSTED_ORIGINS", default="https://*.ktsdev.ru")
-]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -62,11 +57,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://www.zinchi5d.beget.tech",
-    "http://zinchi5d.beget.tech",
-    "https://www.zinchi5d.beget.tech",
-    "https://zinchi5d.beget.tech",
-    "http://localhost:3000",
+    "https://ooomlk.ru",
+    "https://www.ooomlk.ru",
 ]
 
 if SILK:
@@ -92,25 +84,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "moloko_backend.application.wsgi.application"
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": env.str("DATABASE_NAME", default=""),
-#         "USER": env.str("DATABASE_USER", default=""),
-#         "PASSWORD": env.str("DATABASE_PASSWORD", default=""),
-#         "HOST": env.str("DATABASE_HOST", default="127.0.0.1"),
-#         "PORT": env.int("DATABASE_PORT", default="5432"),
-#         "TEST": {"CHARSET": "UTF8", "TEMPLATE": "template0"},
-#     },
-# }
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": env.str("DATABASE_NAME", default="zinchi5d_moloko"),
-        "USER": env.str("DATABASE_USER", default="zinchi5d_moloko"),
-        "PASSWORD": env.str("DATABASE_PASSWORD", default="nMc4&J6o"),
-        "HOST": env.str("DATABASE_HOST", default="localhost"),
+        "NAME": env.str("DATABASE_NAME", default="admin"),
+        "USER": env.str("DATABASE_USER", default="admin"),
+        "PASSWORD": env.str("DATABASE_PASSWORD", default="admin"),
+        "HOST": env.str("DATABASE_HOST", default="admin"),
         "PORT": env.int("DATABASE_PORT", default="3306"),
     },
 }
@@ -189,7 +169,9 @@ EMAIL_HOST = env("EMAIL_HOST", default="smtp.mail.ru")
 EMAIL_PORT = env("EMAIL_PORT", default=2525)
 EMAIL_USE_TLS = env("EMAIL_USE_TLS", default=True)
 EMAIL_USE_SSL = False
-EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="websiteee02@mail.ru")
-EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="ZZ2eK9ieJcyc6wfdGrTh")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="admin@mail.com")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="password")
+EMAIL_FROM_USER = env("EMAIL_FROM_USER", default="admin@mail.com")
 
-EMAIL_FROM_USER = env("EMAIL_FROM_USER", default="websiteee02@mail.ru")
+COOPERATION_BID_EMAIL_RECIPIENT =env("EMAIL_FROM_USER", default="admin@mail.com")
+PRICELIST_BID_EMAIL_RECIPIENT = env("EMAIL_FROM_USER", default="admin@mail.com")

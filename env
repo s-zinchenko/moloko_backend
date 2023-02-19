@@ -1,0 +1,13 @@
+DATABASE_NAME=optmolum_admin
+DATABASE_USER=optmolum_admin
+DATABASE_PASSWORD=XB4cyr3*
+DATABASE_HOST=localhost
+DATABASE_PORT=3306
+EMAIL_HOST_USER=websiteee02@mail.ru
+EMAIL_HOST_PASSWORD=ZZ2eK9ieJcyc6wfdGrTh
+EMAIL_FROM_USER=moloko@admin.ru
+SECRET_KEY=7003164139422e67d633d2cf8b829e6fa31d902e
+PRICELIST_BID_EMAIL_RECIPIENT=1prodotdel@opt-moloko.ru
+COOPERATION_BID_EMAIL_RECIPIENT=1moloko.optom@mail.ru
+PROJECT_DIR=/home/o/optmolum/ooomlk.ru/moloko_backend
+PROJECT_PACKAGES_DIR=/home/o/optmolum/ooomlk.ru/moloko_backend/venv/lib/python3.8/site-packages
